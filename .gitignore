@@ -1,0 +1,11 @@
+node_modules/
+.idea
+.publish
+package-lock.json
+webpack.config.js
+workspace.code-workspace
+
+backend/node_modules
+backend/.env
+
+frontend/node_modules

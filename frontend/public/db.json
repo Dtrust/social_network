@@ -1,0 +1,134 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "_id": "600605063629703e2025dfc8",
+      "text": "Aliqua ullamco pariatur fugiat deserunt pariatur esse consequat et sit eiusmod ut. Aliquip consequat eu cupidatat amet reprehenderit fugiat labore laboris cupidatat dolore duis esse fugiat. Eu do eu ullamco qui excepteur fugiat ea amet. Aliqua commodo labore aute do veniam id dolore duis exercitation labore. Et laboris id dolore laborum laboris ullamco sint. Ad aliqua nostrud dolor magna enim irure veniam consequat.",
+      "user": {
+        "fullName": "Gallagher Burris",
+        "userName": "franks",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?1"
+      }
+    },
+    {
+      "_id": "mq5afw30hsh",
+      "text": "testing tweettttttttttttttttttttttttt",
+      "user": {
+        "fullName": "Test User",
+        "userName": "test",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?7"
+      },
+      "id": 2
+    },
+    {
+      "_id": "d9pnm3zilgi",
+      "text": "Another postttttttttttttttttttttttttttttttttttttttttttttt",
+      "user": {
+        "fullName": "Test User",
+        "userName": "test",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?7"
+      },
+      "id": 3
+    },
+    {
+      "_id": "7l7t9owo1b2",
+      "text": "fffffffffffffffffffffff",
+      "user": {
+        "fullName": "Test User",
+        "userName": "test",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?7"
+      },
+      "id": 4
+    },
+    {
+      "_id": "iz1eekm5wo",
+      "text": "not error",
+      "user": {
+        "fullName": "Test User",
+        "userName": "test",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?7"
+      },
+      "id": 5
+    },
+    {
+      "_id": "y7e95fzks5c",
+      "text": "Temporary post",
+      "user": {
+        "fullName": "Test User",
+        "userName": "test",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?7"
+      },
+      "id": 6
+    },
+    {
+      "_id": "2pyujo93fb",
+      "text": "one more",
+      "user": {
+        "fullName": "Test User",
+        "userName": "test",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?7"
+      },
+      "id": 7
+    },
+    {
+      "_id": "eb7dk19um2f",
+      "text": "first",
+      "user": {
+        "fullName": "Test User",
+        "userName": "test",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?7"
+      },
+      "id": 8
+    },
+    {
+      "_id": "h8kky2pthy4",
+      "text": "7777",
+      "user": {
+        "fullName": "Test User",
+        "userName": "test",
+        "avatarUrl": "https://source.unsplash.com/random/100x100?7"
+      },
+      "id": 9
+    }
+  ],
+  "tags": [
+    {
+      "_id": "600605063629703e2025dfs8",
+      "name": "Ukraine",
+      "count": "45789"
+    },
+    {
+      "_id": "600605063629703e2025dfq8",
+      "name": "#COVID19",
+      "count": "1833"
+    },
+    {
+      "_id": "600605063629703e2025dfw8",
+      "name": "REQUEST",
+      "count": "3450"
+    }
+  ],
+  "users": [
+    {
+      "fullName": "Campbell Travis",
+      "userName": "becker",
+      "avatarUrl": "https://source.unsplash.com/random/100x100?4"
+    },
+    {
+      "fullName": "Mueller Taylor",
+      "userName": "golden",
+      "avatarUrl": "https://source.unsplash.com/random/100x100?4"
+    },
+    {
+      "fullName": "Mueller Taylor",
+      "userName": "golden",
+      "avatarUrl": "https://source.unsplash.com/random/100x100?4"
+    }
+  ],
+  "user": {
+    "_id": "600605063629703e2025dfc8",
+    "fullName": "Gallagher Burris",
+    "userName": "franks",
+    "avatarUrl": "https://source.unsplash.com/random/100x100?1"
+  }
+}
