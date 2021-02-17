@@ -5,8 +5,10 @@ import './core/db';
 
 import express from 'express';
 import { UserCtrl } from './controllers/UserController';
+import { PostsCtrl } from './controllers/PostsController'
 import { registerValidations } from './validations/register';
 import { passport } from './core/passport';
+import {createPostValidations} from "./validations/createPost";
 
 const app = express();
 
@@ -22,6 +24,13 @@ app.use(passport.initialize());
 app.get('/users', UserCtrl.index);
 app.get('/users/me', passport.authenticate('jwt', {session: false}), UserCtrl.getUserInfo);
 app.get('/users/:id', UserCtrl.show);
+
+app.get('/posts', PostsCtrl.index);
+app.get('/posts/:id', PostsCtrl.show);
+app.post('/posts', passport.authenticate('jwt'), createPostValidations, PostsCtrl.create);
+app.patch('/posts/:id', passport.authenticate('jwt'), createPostValidations, PostsCtrl.update);
+app.delete('/posts/:id', passport.authenticate('jwt'), PostsCtrl.delete);
+
 app.get('/auth/verify', registerValidations, UserCtrl.verify);
 app.post('/auth/register', registerValidations, UserCtrl.create);
 app.post('/auth/login', passport.authenticate('local'), UserCtrl.afterLogin);

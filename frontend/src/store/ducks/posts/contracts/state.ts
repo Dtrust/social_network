@@ -14,10 +14,11 @@ export enum AddPostState {
 export interface Post {
     _id: string;
     text: string;
+    createdAt: string;
     user: {
-        avatarUrl: string;
-        fullName: string;
-        userName: string;
+        avatarurl: string;
+        fullname: string;
+        username: string;
     };
 }
 

@@ -7,8 +7,9 @@ import {
     setPosts,
     setPostsLoadingState
 } from "./actions/actionCreators";
-import { FetchAddPostActionInterface, PostsActionsType } from './actions/actionTypes';
-import {AddPostState, LoadingState, Post } from './contracts/state';
+import {FetchAddPostActionInterface, PostsActionsType} from './actions/actionTypes';
+import {AddPostState, LoadingState} from './contracts/state';
+
 
 export function* fetchPostsRequests() {
     try {
@@ -19,18 +20,9 @@ export function* fetchPostsRequests() {
     }
 }
 
-export function* fetchAddPostRequests({payload}: FetchAddPostActionInterface) {
+export function* fetchAddPostRequests({payload: text}: FetchAddPostActionInterface) {
     try {
-        const data: Post = {
-            _id: Math.random().toString(36).substring(2),
-            text: payload,
-            user: {
-                fullName: 'Test User',
-                userName: 'test',
-                avatarUrl: 'https://source.unsplash.com/random/100x100?7'
-            },
-        };
-        const item = yield call(PostsApi.addPost, data);
+        const item = yield call(PostsApi.addPost, text);
         yield put(addPost(item));
     } catch (error) {
         yield put(setAddPostState(AddPostState.ERROR));

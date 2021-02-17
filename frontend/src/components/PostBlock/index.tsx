@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 
 import {Grid, IconButton, Typography} from "@material-ui/core";
 import Avatar from "@material-ui/core/Avatar";
@@ -9,31 +9,42 @@ import LikeIcon from "@material-ui/icons/FavoriteBorderOutlined";
 import ShareIcon from "@material-ui/icons/ShareOutlined";
 
 import {useStylesHome} from "../../pages/Home/theme";
+import { formatDate } from '../../utils/formatDate';
+
 
 interface PostBlockProps {
     _id: string;
     text: string;
     user: {
-        avatarUrl: string;
-        fullName: string;
-        userName: string;
+        avatarurl: string;
+        fullname: string;
+        username: string;
     };
+    createdAt: string;
     classes: ReturnType<typeof useStylesHome>;
 }
 
-export const PostBlock: React.FC<PostBlockProps> = ({_id, text, user, classes}: PostBlockProps): React.ReactElement => {
+export const PostBlock: React.FC<PostBlockProps> = ({_id, text, user, createdAt, classes}: PostBlockProps): React.ReactElement => {
+    const history = useHistory();
+
+    const handleClickPost = (): void => {
+        history.push(`/home/post/${_id}`);
+    }
+
     return (
         <div className={classes.postBlock}>
-            <Link to={`/home/post/${_id}`}>
+            <a onClick={handleClickPost} href={`/home/post/${_id}`}>
                 <Grid container spacing={3}>
                     <Grid item xs={1}>
-                        <Avatar alt={`avatar by ${user.userName}`} src={user.avatarUrl} />
+                        <Avatar alt={`avatar by ${user.username}`} src={user.avatarurl} />
                     </Grid>
                     <Grid item xs={11}>
                         <Typography>
-                            <b>{user.fullName}</b> @{user.userName}
+                            <b>{user.fullname}</b> @{user.username}
                             <span>·</span>
-                            <span>1h</span>
+                            <span>{formatDate(new Date(createdAt))}</span>
+                            <button>Delete</button>
+                            <button>Edit</button>
                         </Typography>
                         <Typography variant='body1' gutterBottom>
                             {text}
@@ -66,7 +77,7 @@ export const PostBlock: React.FC<PostBlockProps> = ({_id, text, user, classes}: 
                         </div>
                     </Grid>
                 </Grid>
-            </Link>
+            </a>
         </div>
     );
 };

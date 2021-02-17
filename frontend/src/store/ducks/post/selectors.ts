@@ -1,5 +1,6 @@
 import {LoadingState, PostState} from "./contracts/state";
 import {RootState} from "../../store";
+import {Post} from "../posts/contracts/state";
 
 
 export const selectPost = (state: RootState): PostState => state.post
@@ -10,4 +11,4 @@ export const selectIsPostLoading = (state: RootState): boolean => selectLoadingS
 
 export const selectIsPostLoaded = (state: RootState): boolean => selectLoadingState(state) === LoadingState.LOADED
 
-export const selectPostData = (state: RootState): PostState['data'] => selectPost(state).data
+export const selectPostData = (state: RootState): Post | undefined => selectPost(state).data

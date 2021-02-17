@@ -1,18 +1,23 @@
-import axios from "axios";
+import {axios} from "../../core/axios";
+import {Post} from "../../store/ducks/posts/contracts/state";
 
-import {Post, PostsState } from "../../store/ducks/posts/contracts/state";
+
+interface Response<T> {
+    status: string;
+    data: T;
+}
 
 export const PostsApi = {
-    fetchPosts(): Promise<PostsState['items']> {
-        return axios.get('/posts')
-            .then(({data}) => data)
+    async fetchPosts(): Promise<Post[]> {
+        const {data} = await axios.get<Response<Post[]>>('/posts');
+        return data.data;
     },
-    fetchPostData(id: string): Promise<Post[]> {
-        return axios.get('/posts?_id=' + id)
-            .then(({data}) => data)
+    async fetchPostData(id: string): Promise<Post> {
+        const {data} = await axios.get<Response<Post>>('/posts/' + id);
+        return data.data;
     },
-    addPost(payload: Post): Promise<Post> {
-        return axios.post('/posts', payload)
-            .then(({data}) => data)
+    async addPost(payload: string): Promise<Post> {
+        const {data} = await axios.post<Response<Post>>('/posts', {text: payload});
+        return data.data;
     }
 }
