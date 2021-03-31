@@ -1,11 +1,15 @@
 import React from 'react';
+
 import {makeStyles, Typography} from '@material-ui/core';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import Button from "@material-ui/core/Button";
-import ModalBlock from "../../components/ModalBlock";
 import TextField from "@material-ui/core/TextField";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
+
+import ModalBlock from "../../components/ModalBlock";
+import {LoginModal} from "./components/LoginModal";
+
 
 export const useStylesSignIn = makeStyles((theme) => ({
     button: {
@@ -68,33 +72,7 @@ export const SignIn: React.FC = (): React.ReactElement => {
                 <Button onClick={handleClickOpenSignUp}>Sign up</Button>
                 <Button onClick={handleClickOpenSignIn}>Log in</Button>
 
-                <ModalBlock visible={visibleModal === 'signIn'} onClose={handleCloseModal} title='Log in' classes={classes}>
-                    <DialogContent>
-                        <TextField
-                            autoFocus
-                            margin="dense"
-                            id="email"
-                            label="Email Address"
-                            type="email"
-                            fullWidth
-                        />
-                        <TextField
-                            margin="dense"
-                            id="password"
-                            label="Password"
-                            type="password"
-                            fullWidth
-                        />
-                    </DialogContent>
-                    <DialogActions>
-                        <Button onClick={handleCloseModal} color="primary">
-                            Cancel
-                        </Button>
-                        <Button onClick={handleCloseModal} color="primary">
-                            Log in
-                        </Button>
-                    </DialogActions>
-                </ModalBlock>
+                <LoginModal open={visibleModal === 'signIn'} onClose={handleCloseModal} />
 
                 <ModalBlock visible={visibleModal === 'signUp'} onClose={handleCloseModal} title='Create your account' classes={classes}>
                     <DialogContent>

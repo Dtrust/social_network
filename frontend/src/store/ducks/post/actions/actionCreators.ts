@@ -1,17 +1,18 @@
+import { LoadingStatus } from "../../../types";
 import {
     FetchPostDataActionInterface,
     PostActionsType,
     SetPostDataActionInterface,
     SetPostLoadingStateActionInterface
 } from "./actionTypes";
-import {LoadingState, PostState} from "../contracts/state";
+import {PostState} from "../contracts/state";
 
 export const setPostData = (payload: PostState['data']): SetPostDataActionInterface => ({
-   type: PostActionsType.SET_POST_DATA,
-   payload
+    type: PostActionsType.SET_POST_DATA,
+    payload
 });
 
-export const setPostLoadingState = (payload: LoadingState): SetPostLoadingStateActionInterface => ({
+export const setPostLoadingState = (payload: LoadingStatus): SetPostLoadingStateActionInterface => ({
     type: PostActionsType.SET_LOADING_STATE,
     payload
 });

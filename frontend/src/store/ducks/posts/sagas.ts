@@ -1,6 +1,7 @@
 import {call, put, takeLatest } from 'redux-saga/effects'
 
 import { PostsApi } from "../../../services/api/postsApi";
+import { LoadingStatus } from '../../types';
 import {
     addPost,
     setAddPostState,
@@ -8,7 +9,7 @@ import {
     setPostsLoadingState
 } from "./actions/actionCreators";
 import {FetchAddPostActionInterface, PostsActionsType} from './actions/actionTypes';
-import {AddPostState, LoadingState} from './contracts/state';
+import {AddPostState} from './contracts/state';
 
 
 export function* fetchPostsRequests() {
@@ -16,7 +17,7 @@ export function* fetchPostsRequests() {
         const items = yield call(PostsApi.fetchPosts);
         yield put(setPosts(items));
     } catch (error) {
-        yield put(setPostsLoadingState(LoadingState.ERROR));
+        yield put(setPostsLoadingState(LoadingStatus.ERROR));
     }
 }
 

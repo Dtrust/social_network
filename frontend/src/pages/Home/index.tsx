@@ -21,7 +21,7 @@ import {BackButton} from "../../components/BackButton";
 import {Post} from "../Post";
 
 
-export const Index = (): React.ReactElement => {
+export const Home = (): React.ReactElement => {
     const classes = useStylesHome();
     const dispatch = useDispatch();
     const posts = useSelector(selectPostsItems);

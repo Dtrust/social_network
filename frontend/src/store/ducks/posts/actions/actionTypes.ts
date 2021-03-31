@@ -1,5 +1,6 @@
 import {Action} from "redux";
-import {AddPostState, LoadingState, Post, PostsState} from "../contracts/state";
+import { LoadingStatus } from "../../../types";
+import {AddPostState, Post, PostsState} from "../contracts/state";
 
 export enum PostsActionsType {
     SET_POSTS = 'posts/SET_POSTS',
@@ -31,7 +32,7 @@ export interface FetchPostsActionInterface extends Action<PostsActionsType> {
 
 export interface SetPostsLoadingStateActionInterface extends Action<PostsActionsType> {
     type: PostsActionsType.SET_LOADING_STATE;
-    payload: LoadingState;
+    payload: LoadingStatus;
 }
 
 export interface SetAddPostStateActionInterface extends Action<PostsActionsType> {

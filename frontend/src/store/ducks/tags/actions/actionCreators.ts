@@ -1,6 +1,7 @@
 import {Action} from "redux";
+import { LoadingStatus } from "../../../types";
 
-import {LoadingState, TagsState} from "../contracts/state";
+import {TagsState} from "../contracts/state";
 
 export enum TagsActionsType {
     SET_TAGS = 'tags/SET_TAGS',
@@ -19,7 +20,7 @@ export interface FetchTagsActionInterface extends Action<TagsActionsType> {
 
 export interface SetTagsLoadingStateActionInterface extends Action<TagsActionsType> {
     type: TagsActionsType.SET_LOADING_STATE;
-    payload: LoadingState
+    payload: LoadingStatus
 }
 
 export const setTags = (payload: TagsState['items']): SetTagsActionInterface => ({
@@ -27,7 +28,7 @@ export const setTags = (payload: TagsState['items']): SetTagsActionInterface => 
    payload
 });
 
-export const setTagsLoadingState = (payload: LoadingState): SetTagsLoadingStateActionInterface => ({
+export const setTagsLoadingState = (payload: LoadingStatus): SetTagsLoadingStateActionInterface => ({
     type: TagsActionsType.SET_LOADING_STATE,
     payload
 });

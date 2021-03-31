@@ -1,7 +1,7 @@
 import React from 'react';
 import Dialog from "@material-ui/core/Dialog";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import {useStylesSignIn} from "../../pages/SignIn/SignIn";
+import {useStylesSignIn} from "../../pages/SignIn";
 
 interface ModalBlockProps {
     title?: string;

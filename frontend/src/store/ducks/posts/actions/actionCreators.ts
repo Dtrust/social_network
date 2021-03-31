@@ -1,4 +1,5 @@
-import {AddPostState, LoadingState, Post, PostsState} from "../contracts/state";
+import { LoadingStatus } from "../../../types";
+import {AddPostState, Post, PostsState} from "../contracts/state";
 import {
     AddPostActionInterface,
     FetchAddPostActionInterface,
@@ -24,7 +25,7 @@ export const addPost = (payload: Post): AddPostActionInterface => ({
     payload
 });
 
-export const setPostsLoadingState = (payload: LoadingState): SetPostsLoadingStateActionInterface => ({
+export const setPostsLoadingState = (payload: LoadingStatus): SetPostsLoadingStateActionInterface => ({
     type: PostsActionsType.SET_LOADING_STATE,
     payload
 });
