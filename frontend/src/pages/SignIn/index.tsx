@@ -3,12 +3,9 @@ import React from 'react';
 import {makeStyles, Typography} from '@material-ui/core';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
 
-import ModalBlock from "../../components/ModalBlock";
 import {LoginModal} from "./components/LoginModal";
+import {RegisterModal} from "./components/RegisterModal";
 
 
 export const useStylesSignIn = makeStyles((theme) => ({
@@ -72,42 +69,9 @@ export const SignIn: React.FC = (): React.ReactElement => {
                 <Button onClick={handleClickOpenSignUp}>Sign up</Button>
                 <Button onClick={handleClickOpenSignIn}>Log in</Button>
 
-                <LoginModal open={visibleModal === 'signIn'} onClose={handleCloseModal} />
+                <RegisterModal open={visibleModal === 'signUp'} onClose={handleCloseModal} />
 
-                <ModalBlock visible={visibleModal === 'signUp'} onClose={handleCloseModal} title='Create your account' classes={classes}>
-                    <DialogContent>
-                        <TextField
-                            autoFocus
-                            margin="dense"
-                            id="name"
-                            label="Name"
-                            type="text"
-                            fullWidth
-                        />
-                        <TextField
-                            margin="dense"
-                            id="email"
-                            label="Email Address"
-                            type="email"
-                            fullWidth
-                        />
-                        <TextField
-                            margin="dense"
-                            id="password"
-                            label="Password"
-                            type="password"
-                            fullWidth
-                        />
-                    </DialogContent>
-                    <DialogActions>
-                        <Button onClick={handleCloseModal} color="primary">
-                            Cancel
-                        </Button>
-                        <Button onClick={handleCloseModal} color="primary">
-                            Sign up
-                        </Button>
-                    </DialogActions>
-                </ModalBlock>
+                <LoginModal open={visibleModal === 'signIn'} onClose={handleCloseModal} />
 
             </section>
         </div>

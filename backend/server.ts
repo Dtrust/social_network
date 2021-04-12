@@ -5,21 +5,16 @@ import './core/db';
 
 import express from 'express';
 import { UserCtrl } from './controllers/UserController';
-import { PostsCtrl } from './controllers/PostsController'
 import { registerValidations } from './validations/register';
 import { passport } from './core/passport';
-import {createPostValidations} from "./validations/createPost";
+import { PostsCtrl } from './controllers/PostsController';
+import { createPostValidations } from "./validations/createPost";
 
 const app = express();
 
 app.use(express.json());
 app.use(passport.initialize());
 
-/*
-  TODO:
-  2. Сделать авторизацию через JWT + Passport
-  3. Сделать возможность добавлять твиты через авторизованного пользователя
-*/
 
 app.get('/users', UserCtrl.index);
 app.get('/users/me', passport.authenticate('jwt', {session: false}), UserCtrl.getUserInfo);

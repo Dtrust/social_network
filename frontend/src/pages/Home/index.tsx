@@ -1,24 +1,22 @@
 import React from 'react';
-import {useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Route } from 'react-router-dom';
 
-import {Grid, Typography, Paper, Button, List, ListItem} from '@material-ui/core';
-import Avatar from '@material-ui/core/Avatar';
-import PersonAddIcon from '@material-ui/icons/PersonAdd';
-import ListItemText from '@material-ui/core/ListItemText/ListItemText';
+import { Grid, Typography, Paper } from '@material-ui/core';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 import { useStylesHome } from './theme';
-import {PostBlock} from "../../components/PostBlock";
-import {MenuBlock} from "../../components/MenuBlock";
-import {AddPostForm} from "../../components/AddPostForm";
-import {SearchField} from "../../components/SearchField";
+import { PostBlock } from "../../components/PostBlock";
+import { MenuBlock } from "../../components/MenuBlock";
+import { AddPostForm } from "../../components/AddPostForm";
+import { SearchField } from "../../components/SearchField";
 import { fetchPosts } from '../../store/ducks/posts/actions/actionCreators';
-import {selectIsPostsLoading, selectPostsItems} from '../../store/ducks/posts/selectors';
+import { selectIsPostsLoading, selectPostsItems } from '../../store/ducks/posts/selectors';
 import { fetchTags } from '../../store/ducks/tags/actions/actionCreators';
-import {TagsBlock} from "../../components/TagsBlock";
-import {BackButton} from "../../components/BackButton";
-import {Post} from "../Post";
+import { TagsBlock } from "../../components/TagsBlock";
+import { BackButton } from "../../components/BackButton";
+import { Post } from "../Post";
+import { WhosRead } from '../../components/WhosRead';
 
 
 export const Home = (): React.ReactElement => {
@@ -76,30 +74,8 @@ export const Home = (): React.ReactElement => {
 
                             <TagsBlock classes={classes}/>
 
-                            <Paper className={classes.rightSideBlock}>
-                                <Paper className={classes.rightSideBlockHeader} variant='outlined'>
-                                    <b>Who's read</b>
-                                </Paper>
-                                <List>
-                                    <ListItem className={classes.rightSideBlockItem}>
-                                        <Avatar
-                                            alt='Glen Rice'
-                                            src='https://img.favpng.com/0/19/12/computer-icons-avatar-icon-design-png-favpng-MbC2sNWBjav8k1nYeY0FMTcgZ.jpg'
-                                        />
-                                        <ListItemText
-                                            primary='3pts contest'
-                                            secondary={
-                                                <Typography component='span'>
-                                                    @GlenRice
-                                                </Typography>
-                                            }
-                                        />
-                                        <Button>
-                                            <PersonAddIcon/>
-                                        </Button>
-                                    </ListItem>
-                                </List>
-                            </Paper>
+                            <WhosRead/>
+
                         </Paper>
                     </div>
                 </Grid>

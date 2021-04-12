@@ -3,6 +3,7 @@ import { postSaga } from "./ducks/post/sagas";
 import { postsSaga } from "./ducks/posts/sagas";
 import { tagsSaga } from "./ducks/tags/sagas";
 import { userSaga } from "./ducks/user/sagas";
+import { whosReadSaga } from "./ducks/whosRead/sagas";
 
 
 export default function* rootSaga() {
@@ -10,6 +11,7 @@ export default function* rootSaga() {
         postsSaga(),
         postSaga(),
         tagsSaga(),
-        userSaga()
+        userSaga(),
+        whosReadSaga(),
     ])
 }

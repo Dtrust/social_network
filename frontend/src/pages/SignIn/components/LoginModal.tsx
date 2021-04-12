@@ -106,7 +106,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({open, onClose}): React.Re
                                 <Button onClick={onClose} color="primary">
                                     Cancel
                                 </Button>
-                                <Button type='submit' color="primary">
+                                <Button disabled={loadingStatus === LoadingStatus.LOADING} type='submit' color="primary">
                                     Log in
                                 </Button>
                             </DialogActions>

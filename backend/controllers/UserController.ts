@@ -2,10 +2,10 @@ import express from 'express';
 import jwt from 'jsonwebtoken';
 
 import { validationResult } from 'express-validator';
-import { isValidObjectId } from '../utils/isValidObjectId'
 import { UserModel, UserModelInterface, UserModelDocumentInterface } from '../models/UserModel';
 import { generateMD5 } from '../utils/generateHash';
 import { sendEmail } from '../utils/sendEmail';
+import { isValidObjectId } from '../utils/isValidObjectId';
 
 class UserController {
   async index(_: any, res: express.Response): Promise<void> {
@@ -114,13 +114,14 @@ class UserController {
 
       if (user) {
         user.confirmed = true;
-        user.save();
+        await user.save();
 
         res.json({
           status: 'success',
+          data: user.toJSON(),
         });
       } else {
-        res.status(404).json({ status: 'error', message: 'Sorry, this user found' });
+        res.status(404).json({ status: 'error', message: 'Sorry, this user not found' });
       }
     } catch (error) {
       res.status(500).json({
@@ -138,7 +139,7 @@ class UserController {
         data: {
           ...user,
           token: jwt.sign({ data: req.user }, process.env.SECRET_KEY || '123', {
-            expiresIn: '30d',
+            expiresIn: '30 days',
           }),
         },
       });
